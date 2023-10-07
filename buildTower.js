@@ -4,45 +4,15 @@ given a positive integer number of floors. A tower block is represented
 with "*" character.
 */
 function towerBuilder(nFloors) {
-  let symbol = '';
-  let counter = 1;
-  let floorCounter = [1];
-  let floorSymbols = [];
-  let floorSpacing = [];
-  let spacing = '';
-  let result = [];
-  let floorResult = [];
-
-  for (let i = 1; i < nFloors; i++) {
-    counter = counter + 2;
-    floorCounter.push(counter);
+  const result = [];
+  for (let i = 1; i <= nFloors; i++) {
+      const spaces = ' '.repeat(nFloors - i);
+      const asterisk = '*'.repeat(i * 2 - 1);
+      result.push(`${spaces}${asterisk}${spaces}`)
   }
 
-  for (let i = 0; i < floorCounter.length; i++) {
-    symbol = '*'.repeat(floorCounter[i]);
-    floorSymbols.push(symbol);
-  }
-
-  for (let i = nFloors - 1; i >= 1; i--) {
-    spacing = spacing + ' ';
-    floorSpacing.push(spacing);
-  }
-
-  floorSpacing.reverse();
-
-  for (let i = 0; i < floorSymbols.length; i++) {
-    if (floorSpacing[i]) {
-      result = `${floorSpacing[i]}${floorSymbols[i]}${floorSpacing[i]}`;
-      floorResult.push(result);
-    } else {
-      result = `${floorSymbols[i]}`;
-      floorResult.push(result);
-    }
-  }
-
-  return floorResult;
+  return result;
 }
-
 towerBuilder(3);
 towerBuilder(6);
 /*
