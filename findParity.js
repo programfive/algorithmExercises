@@ -8,14 +8,13 @@
 */
 function findOutlier(integers){
   const event=[];
-   const odd=[];
-   integers.forEach((items)=>{
-     if(items%2===0) event.push(items);
-     if(items%2!==0) odd.push(items);
-   })
-   return event.length<=odd.length? event[0]:odd[0]
+  const odd=[];
+  integers.forEach((items)=>{
+    if(items%2===0) event.push(items);
+    if(items%2!==0) odd.push(items);
+  })
+   return event.length<=odd.length? event[0]:odd[0];
  }
- findOutlier([2, 4, 0, 100, 4, 11, 2602, 36]) //-->  11 (the only odd number)
-
+ findOutlier([2, 4, 0, 100, 4, 11, 2602, 36])//-->  11 (the only odd number)
  findOutlier([160, 3, 1719, 19, 11, 13, -21])// --> 160 (the only even number)
 
